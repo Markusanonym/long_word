@@ -1,0 +1,26 @@
+To solve the "Longest Word" challenge, you can follow these steps:
+
+1. Remove punctuation from the input string to ignore it. You can use regular expressions or iterate through each character, removing punctuation marks.
+2. Split the string into words by using a space as the delimiter. This will give you an array of words.
+3. Initialize a variable called "longest_word" with an empty string. This variable will store the current longest word.
+4. Iterate through each word in the array and compare its length with the length of the "longest_word." If the current word is longer, update the value of "longest_word" to the current word.
+5. Finally, return the value of "longest_word" as the result.
+
+Here's a Python implementation of the solution:
+
+```python
+import re
+
+def LongestWord(sen):
+    sen = re.sub(r'[^\w\s]', '', sen)  # Remove punctuation
+    words = sen.split()  # Split the string into words
+    longest_word = ''
+  
+    for word in words:
+        if len(word) > len(longest_word):
+            longest_word = word
+
+    return longest_word
+```
+
+For the input string "Hello world123 567", the function `LongestWord("Hello world123 567")` would return "world123" since it is the longest word without considering punctuation.
